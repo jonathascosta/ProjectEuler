@@ -22,7 +22,7 @@ namespace ProjectEuler
 
             while (f3 < max)
 			{
-				if (f3 % 2 == 0)
+				if (f3.IsEven())
 					soma += f3;
 
 				f1 = f2;

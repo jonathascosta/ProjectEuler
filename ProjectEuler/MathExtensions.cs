@@ -18,6 +18,11 @@ namespace ProjectEuler
             return true;
         }
 
+        public static bool IsEven(this long number)
+        {
+            return (number % 2 == 0);
+        }
+
         public static IEnumerable<long> GetFactors(this long number)
         {
             if (number.IsPrime())

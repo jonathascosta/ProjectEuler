@@ -62,46 +62,25 @@ namespace ProjectEuler
             };
 
             for (int i = 0; i < matrix.GetLength(0); i++)
-                for (int j = 0; j < matrix.GetLength(1) - (adjacent - 1); j++)
-                {
-                    long product = 1;
-                    for (int k = 0; k < adjacent; k++)
-                        product *= matrix[i, j + k];
-                    if (product > greatest)
-                        greatest = product;
-                }
-
-            for (int i = 0; i < matrix.GetLength(0) - (adjacent - 1); i++)
+            {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    long product = 1;
+                    long pw = 1, ps = 1, psw = 1, pne = 1;
                     for (int k = 0; k < adjacent; k++)
-                        product *= matrix[i + k, j];
-                    if (product > greatest)
-                        greatest = product;
-                }
-
-            for (int i = 0; i < matrix.GetLength(0) - (adjacent - 1); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1) - (adjacent - 1); j++)
-                {
-                    long product = 1;
-                    for (int k = 0; k < adjacent; k++)
-                        product *= matrix[i + k, j + k];
-                    if (product > greatest)
-                        greatest = product;
-                }
-            }
-
-            for (int i = (adjacent - 1); i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1) - (adjacent - 1); j++)
-                {
-                    long product = 1;
-                    for (int k = 0; k < adjacent; k++)
-                        product *= matrix[i - k, j + k];
-                    if (product > greatest)
-                        greatest = product;
+                    {
+                        if (i < matrix.GetLength(0) - (adjacent - 1))
+                            ps *= matrix[i + k, j];
+                        if (j < matrix.GetLength(1) - (adjacent - 1))
+                            pw *= matrix[i, j + k];
+                        if ((i < matrix.GetLength(0) - (adjacent - 1)) && (j < matrix.GetLength(1) - (adjacent - 1)))
+                            psw *= matrix[i + k, j + k];
+                        if ((i >= (adjacent - 1)) && (j < matrix.GetLength(1) - (adjacent - 1)))
+                            pne *= matrix[i - k, j + k];
+                    }
+                    if (pw > greatest) greatest = pw;
+                    if (ps > greatest) greatest = ps;
+                    if (psw > greatest) greatest = psw;
+                    if (pne > greatest) greatest = pne;
                 }
             }
 

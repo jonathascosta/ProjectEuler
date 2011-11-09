@@ -22,9 +22,8 @@ namespace ProjectEuler
 				foreach (var f in i.GetFactors())
 				{
 					if (!tempFactors.Contains(f))
-					{
 						factors.Add(f);
-					}
+
 					tempFactors.Remove(f);
 				}
 			}
