@@ -23,27 +23,37 @@ namespace ProjectEuler
             return (number % 2 == 0);
         }
 
-        public static IEnumerable<long> GetFactors(this long number)
+        public static IEnumerable<long> GetPrimeFactors(this long number)
         {
-            if (number.IsPrime())
-                return new long[] { number };
-
             var factors = new List<long>();
-            double limit = Math.Sqrt(number);
+            double limit = Math.Max(2, Math.Sqrt(number));
 
             while (number != 1)
-                for (long i = 2; i <= limit; i++)
-                    if (number % i == 0 && i.IsPrime())
+                for (long i = 2; i <= number; i++)
+                    if (number % i == 0)
                     {
                         factors.Add(i);
                         number /= i;
-                        if (number.IsPrime())
-                        {
-                            factors.Add(number);
-                            number /= number;
-                        }
                         break;
                     }
+
+            return factors;
+        }
+
+        public static IEnumerable<long> GetFactors(this long number)
+        {
+            var factors = new List<long>(new long[] { 1, number });
+            double root = Math.Sqrt(number);
+
+            for (long i = 2; i < root; i++)
+                if (number % i == 0)
+                {
+                    factors.Add(i);
+                    factors.Add(number / i);
+                }
+
+            if ((long)root == root)
+                factors.Add((long)root);
 
             return factors;
         }

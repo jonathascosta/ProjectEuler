@@ -19,7 +19,7 @@ namespace ProjectEuler
             for (long i = 2; i <= max; i++)
 			{
 				var tempFactors = new List<long>(factors);
-				foreach (var f in i.GetFactors())
+				foreach (var f in i.GetPrimeFactors())
 				{
 					if (!tempFactors.Contains(f))
 						factors.Add(f);
@@ -29,7 +29,7 @@ namespace ProjectEuler
 			}
 
 			long largest = factors.Aggregate((a, b) => a * b);
-			return largest;
+            return largest;
 		}
 	}
 }
