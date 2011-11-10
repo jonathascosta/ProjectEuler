@@ -13,7 +13,7 @@ namespace ProjectEuler
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            var solution = Problem016.Solve();
+            var solution = Problem017.Solve();
 
             watch.Stop();
             Console.WriteLine("Solução = {0}", solution);
