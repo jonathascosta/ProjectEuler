@@ -59,6 +59,24 @@ namespace ProjectEuler
             return factors;
         }
 
+        public static IEnumerable<long> GetProperDivisors(this long number)
+        {
+            var factors = new List<long>(new long[] { 1 });
+            double root = Math.Sqrt(number);
+
+            for (long i = 2; i < root; i++)
+                if (number % i == 0)
+                {
+                    factors.Add(i);
+                    factors.Add(number / i);
+                }
+
+            if ((long)root == root)
+                factors.Add((long)root);
+
+            return factors;
+        }
+
         public static BigInteger GetFactorial(this int number)
         {
             BigInteger factorial = 1;
