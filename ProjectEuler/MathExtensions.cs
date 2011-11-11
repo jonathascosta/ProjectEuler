@@ -24,6 +24,11 @@ namespace ProjectEuler
             return (number % 2 == 0);
         }
 
+        public static bool IsAbundant(this long number)
+        {
+            return (number.GetProperDivisors().Sum() > number);
+        }
+
         public static IEnumerable<long> GetPrimeFactors(this long number)
         {
             var factors = new List<long>();
@@ -43,6 +48,9 @@ namespace ProjectEuler
 
         public static IEnumerable<long> GetFactors(this long number)
         {
+            if (number <= 1)
+                throw new ArgumentOutOfRangeException();
+
             var factors = new List<long>(new long[] { 1, number });
             double root = Math.Sqrt(number);
 
@@ -61,6 +69,9 @@ namespace ProjectEuler
 
         public static IEnumerable<long> GetProperDivisors(this long number)
         {
+            if (number <= 1)
+                throw new ArgumentOutOfRangeException();
+
             var factors = new List<long>(new long[] { 1 });
             double root = Math.Sqrt(number);
 
@@ -80,7 +91,7 @@ namespace ProjectEuler
         public static BigInteger GetFactorial(this int number)
         {
             BigInteger factorial = 1;
-            
+
             for (int i = 1; i <= number; i++)
                 factorial *= i;
 
