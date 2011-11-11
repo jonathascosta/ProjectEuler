@@ -97,5 +97,12 @@ namespace ProjectEuler
 
             return factorial;
         }
+
+        public static void Swap(this IList<long> list, int a, int b)
+        {
+            var temp = list[a];
+            list[a] = list[b];
+            list[b] = temp;
+        }
     }
 }
