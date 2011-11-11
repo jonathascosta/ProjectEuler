@@ -98,6 +98,11 @@ namespace ProjectEuler
             return factorial;
         }
 
+        public static int DigitCount(this long number)
+        {
+            return ((int)Math.Log10(number) + 1);
+        }
+
         public static void Swap(this IList<long> list, int a, int b)
         {
             var temp = list[a];
