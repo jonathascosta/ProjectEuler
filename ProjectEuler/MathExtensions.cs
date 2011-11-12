@@ -10,6 +10,9 @@ namespace ProjectEuler
     {
         public static bool IsPrime(this long number)
         {
+            if (number < 2)
+                return false;
+
             double limit = Math.Sqrt(number);
 
             for (int i = 2; i <= limit; i++)
