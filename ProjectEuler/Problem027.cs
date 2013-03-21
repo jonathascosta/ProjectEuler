@@ -19,7 +19,7 @@ namespace ProjectEuler
                     bOpts.Add(i);
 
             long n = 1;
-            for (int a = -999; a < 1000; a++)
+            for (long a = -max + 1; a < max; a++)
                 foreach (var b in bOpts)
                     if (f(n, a, b).IsPrime())
                         coefs.Add(new coef(a, b));
