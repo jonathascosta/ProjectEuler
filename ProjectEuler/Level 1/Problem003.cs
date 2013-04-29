@@ -14,11 +14,11 @@ namespace ProjectEuler
 		public static long Solve()
 		{
 			long largest = 1;
-            long number = 600851475143;
-            double limit = Math.Sqrt(number);
+			long number = 600851475143;
+			double limit = Math.Sqrt(number);
 
 			for (long i = 1; i <= limit; i++)
-                if ((number % i == 0) && i.IsPrime())
+				if ((number % i == 0) && i.IsPrime())
 					largest = i;
 			
 			return largest;
