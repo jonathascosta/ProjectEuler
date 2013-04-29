@@ -15,9 +15,9 @@ namespace ProjectEuler
 		public static int Solve()
 		{
 			int soma = 0;
-            int max = 1000;
+			int max = 1000;
 
-            for (int i = 1; i < max; i++)
+			for (int i = 1; i < max; i++)
 				if (i % 3 == 0 || i % 5 == 0)
 					soma += i;
 
