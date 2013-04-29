@@ -18,9 +18,9 @@ namespace ProjectEuler
 			long f2 = 2;
 			long f3 = f1 + f2;
 			long soma = 2;
-            long max = 4000000;
+			long max = 4000000;
 
-            while (f3 < max)
+			while (f3 < max)
 			{
 				if (f3.IsEven())
 					soma += f3;
