@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Problem050.cs" />
     <Compile Include="Problem042.cs" />
     <Compile Include="Problem043.cs" />
     <Compile Include="Problem044.cs" />
